@@ -14,6 +14,7 @@
 
 - 设计文档和技术方案
 - README 和上手指南
+- 教程和多页面技术文档
 - API 文档
 - Runbook 与操作手册
 - 变更说明
@@ -24,7 +25,7 @@
 将仓库克隆到 Codex skills 目录：
 
 ```bash
-git clone https://github.com/YOUR_NAME/human-writing.git ~/.codex/skills/human-writing
+git clone https://github.com/VictorD1024/human-writing.git ~/.codex/skills/human-writing
 ```
 
 重启 Codex 或开启新会话，然后直接描述任务。也可以显式调用：
@@ -32,8 +33,6 @@ git clone https://github.com/YOUR_NAME/human-writing.git ~/.codex/skills/human-w
 ```text
 使用 $human-writing 重写这份设计文档。技术人员是主读者，但请让产品经理也能看懂主流程。不要补写系统行为。
 ```
-
-仓库发布后，把 `YOUR_NAME` 替换成实际 GitHub 用户名。
 
 ## 一个例子
 
@@ -56,6 +55,8 @@ Skill 不会只做同义词替换，而会要求文档补齐：
 3. **术语不是禁词**：含义精确就保留，含义模糊就落实到对象和动作。
 4. **不猜缩写**：无法确认全称时明确标记。
 5. **不编造系统事实**：接口、字段、状态码、性能和测试结果必须来自材料。
+6. **保护技术原文**：默认不改代码、命令、字段、路径、链接、引用和实验数字。
+7. **页面可以独立阅读**：多文件教程在每页首次出现处解释关键缩写。
 
 ## 项目结构
 
@@ -64,7 +65,7 @@ human-writing/
 ├── SKILL.md                 # 核心规则与自检
 ├── agents/openai.yaml       # Codex 展示与调用元数据
 └── references/
-    ├── doc-types.md         # 六类技术文档的写法差异
+    ├── doc-types.md         # 七类技术文档的写法差异
     ├── examples.md          # 黑话、缩写和性能声明的改写对照
     └── prompt-zh.md         # 可复制到其他模型的三种提示词
 ```
