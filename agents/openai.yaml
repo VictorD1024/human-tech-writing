@@ -1,0 +1,7 @@
+interface:
+  display_name: "Human Writing"
+  short_description: "把空泛的 AI 草稿改成具体、自然、有判断的中文"
+  default_prompt: "Use $human-writing to rewrite this draft in natural Chinese without inventing facts."
+
+policy:
+  allow_implicit_invocation: true
