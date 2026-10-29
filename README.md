@@ -25,7 +25,7 @@
 将仓库克隆到 Codex skills 目录：
 
 ```bash
-git clone https://github.com/VictorD1024/human-writing.git ~/.codex/skills/human-writing
+git clone https://github.com/VictorD1024/human-tech-writing.git ~/.codex/skills/human-writing
 ```
 
 重启 Codex 或开启新会话，然后直接描述任务。也可以显式调用：
