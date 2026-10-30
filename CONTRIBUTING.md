@@ -1,6 +1,6 @@
 # Contributing
 
-感谢你改进 Human Writing for Technical Docs。
+感谢你改进 Human Tech Writing。
 
 ## 提交前
 
@@ -15,4 +15,4 @@
 python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
 ```
 
-验证器只检查 Skill 的基本结构。提交前还应至少测试一份设计文档、一份操作文档和一份包含缩写的跨领域说明，确认没有编造系统行为，也没有为了通俗而损失技术精度。
+验证器只检查 Skill 的基本结构。提交前还应至少测试一份设计文档、一份操作文档和一份包含缩写的跨领域说明。测试中同时检查：是否编造系统行为，是否为了通俗而损失技术精度，以及删除“不是 A，而是 B”等修辞后是否丢失真实信息。

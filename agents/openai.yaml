@@ -1,7 +1,7 @@
 interface:
-  display_name: "Human Technical Writing"
-  short_description: "把技术黑话、模糊缩写和空泛断言改成准确、易读的技术文档"
-  default_prompt: "Use $human-writing to rewrite this technical document for engineers and non-specialists without inventing system behavior."
+  display_name: "Human Tech Writing"
+  short_description: "把 AI 句式、技术黑话和模糊断言改成准确、易读的技术文档"
+  default_prompt: "Use $human-tech-writing to rewrite this technical document for engineers and non-specialists without inventing system behavior."
 
 policy:
   allow_implicit_invocation: true

@@ -1,4 +1,4 @@
-# Human Writing for Technical Docs
+# Human Tech Writing
 
 一个让 AI 把技术文档写准确、写具体，也让更多人读得懂的 Codex Skill。
 
@@ -7,6 +7,7 @@
 - “落盘、契约、冒烟、链路、兜底”这类只有团队内部默认懂的黑话
 - RAG、RRF、ANN、MCP 等没有展开或连续堆叠的缩写
 - “生产级、高性能、高可用、最佳实践”等没有指标和边界的技术宣传语
+- “不是 A，而是 B”“这意味着”“本质是”等看似有判断、实际没有增加信息的 AI 句式
 
 目标不是消灭专业术语。技术人员仍应能快速找到结论、接口、步骤和风险；相邻领域的工程师与非技术读者，则能在第一次遇到陌生概念时得到足够解释。
 
@@ -25,13 +26,13 @@
 将仓库克隆到 Codex skills 目录：
 
 ```bash
-git clone https://github.com/VictorD1024/human-tech-writing.git ~/.codex/skills/human-writing
+git clone https://github.com/VictorD1024/human-tech-writing.git ~/.codex/skills/human-tech-writing
 ```
 
 重启 Codex 或开启新会话，然后直接描述任务。也可以显式调用：
 
 ```text
-使用 $human-writing 重写这份设计文档。技术人员是主读者，但请让产品经理也能看懂主流程。不要补写系统行为。
+使用 $human-tech-writing 重写这份设计文档。技术人员是主读者，但请让产品经理也能看懂主流程。不要补写系统行为。
 ```
 
 ## 一个例子
@@ -57,16 +58,18 @@ Skill 不会只做同义词替换，而会要求文档补齐：
 5. **不编造系统事实**：接口、字段、状态码、性能和测试结果必须来自材料。
 6. **保护技术原文**：默认不改代码、命令、字段、路径、链接、引用和实验数字。
 7. **页面可以独立阅读**：多文件教程在每页首次出现处解释关键缩写。
+8. **判断必须增加信息**：对比句用于纠正真实误解，结论句需要证据或具体后果。
+9. **结构服从内容**：不强凑三点、排比和等长段落。
 
 ## 项目结构
 
 ```text
-human-writing/
+human-tech-writing/
 ├── SKILL.md                 # 核心规则与自检
 ├── agents/openai.yaml       # Codex 展示与调用元数据
 └── references/
     ├── doc-types.md         # 七类技术文档的写法差异
-    ├── examples.md          # 黑话、缩写和性能声明的改写对照
+    ├── examples.md          # AI 句式、黑话、缩写和性能声明的改写对照
     └── prompt-zh.md         # 可复制到其他模型的三种提示词
 ```
 

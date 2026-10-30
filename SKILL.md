@@ -1,13 +1,13 @@
 ---
-name: human-writing
-description: Write or rewrite Chinese technical documentation for engineers while keeping it accessible to adjacent teams and non-specialists. Use for design docs, READMEs, API docs, runbooks, change notes, incident reviews, and technical explanations that contain AI jargon, internal shorthand, unexplained abbreviations, or vague engineering language. Preserve technical precision and never invent system behavior.
+name: human-tech-writing
+description: Write or rewrite Chinese technical documentation for engineers while keeping it accessible to adjacent teams and non-specialists. Use for design docs, READMEs, API docs, runbooks, change notes, incident reviews, and technical explanations that contain AI-style rhetoric, internal shorthand, unexplained abbreviations, or vague engineering language. Preserve technical precision and never invent system behavior.
 license: MIT
 metadata:
   author: VictorD1024
-  version: "0.3.0"
+  version: "0.4.0"
 ---
 
-# Human Writing for Technical Docs
+# Human Tech Writing
 
 写出技术人员可以顺畅阅读、外行人也能跟上的技术文档。不要靠删掉所有术语来“通俗化”；应保留精确概念，同时给陌生读者足够的上下文。
 
@@ -57,14 +57,25 @@ metadata:
 
 这些只是表达方式示例。不得把示例中的格式、状态码或检查项套入用户的系统。
 
-### 6. 分层呈现细节
+### 6. 直接说明关系和后果
+
+技术文档的力度来自事实和边界，不靠对偶句或口号。逐句检查以下表达：
+
+- “不是 A，而是 B”“核心不是 A”“A 的本质是 B”只在 A 确实是常见误解，且区分 A、B 会改变设计或操作时使用。其他情况分别说明 A、B 的职责和关系。
+- “这意味着”“可以看出”“由此可见”后面必须增加证据、影响或下一步操作。若只是换词复述前一句，删除连接语或整句。
+- “支持”“实现”“保证”“自动”等词应说明执行者、触发条件、作用范围和可观察结果。材料没有这些信息时，保留原意并标记缺口，不自行补全。
+- 不为追求整齐而强凑三点、排比或等长段落。按真实流程、依赖和风险组织内容；一个要点能说清时不要拆成三个。
+
+例如，不写“角色是权限边界，不是三个实现类”，应说明角色决定哪些操作可执行，以及实现类如何承载这套规则。材料没有两者关系时，不要替作者推断。
+
+### 7. 分层呈现细节
 
 - 正文先讲目标、关系、主流程和关键边界。
 - 参数表、完整响应、命令输出和异常分支放在对应章节、表格或附录。
 - 标题应说明本节回答的问题，例如“缓存失效后请求会回源”，而不是“缓存机制”。
 - 代码块前说明用途，代码块后说明读者应观察到的结果。
 
-### 7. 校准技术结论
+### 8. 校准技术结论
 
 - 把已经观察到的结果、由结果推断的解释、尚未执行的计划分开写。
 - “显著提升”“高性能”“生产级”等判断需要指标、对照、条件和样本范围；材料不完整时直接写明缺少什么。
@@ -78,6 +89,8 @@ metadata:
 `落盘`、`落图`、`契约`、`冒烟`、`链路`、`全链路`、`打通`、`拉齐`、`收敛`、`兜底`、`透传`、`回源`、`灰度`、`门禁`、`闭环`、`抓手`、`底座`、`赋能`、`沉淀`、`最佳实践`、`开箱即用`、`生产级`、`高性能`、`高可用`、`天然`、`免费`、`一键`、`无痛`。
 
 若一个词不能回答“具体发生了什么”，就改写或补充：对象、触发条件、动作、可观察结果。若它是团队或协议中的正式术语，则保留并在首次出现时解释。
+
+同样警惕看似有判断、实际没有增加信息的句式：`本质是`、`核心在于`、`不是……而是……`、`这意味着`、`可以看出`、`从某种意义上说`。这些不是禁用词；保留它们的前提是句子给出了真实对比、证据或后果。
 
 ## 缩写规则
 
@@ -96,6 +109,9 @@ metadata:
 - 外行人能否看懂组件之间谁调用谁、数据往哪里走？
 - 每个关键术语是否精确；内部黑话是否解释了具体动作？
 - 每个不常见缩写是否在首次出现时展开并说明作用？
+- “不是 A，而是 B”是否纠正了真实误解；改成直接陈述会不会更清楚？
+- “这意味着”“可以看出”等后文是否增加了证据、影响或操作，而非复述？
+- “支持”“实现”“保证”“自动”是否写清执行者、条件、范围和结果？
 - 是否混用了事实、推断、计划和建议？
 - 技术结论是否写清指标、对照、条件和样本范围？
 - 示例、命令和代码是否说明了预期结果？
@@ -107,5 +123,5 @@ metadata:
 ## 按需参考
 
 - 写特定类型的技术文档时，读取 [references/doc-types.md](references/doc-types.md)。
-- 处理技术黑话、缩写或查看改写对照时，读取 [references/examples.md](references/examples.md)。
+- 处理 AI 句式、技术黑话、缩写或查看改写对照时，读取 [references/examples.md](references/examples.md)。
 - 用户需要一段可复制到其他模型的提示词时，读取 [references/prompt-zh.md](references/prompt-zh.md)。
